@@ -1,0 +1,18 @@
+from collections import OrderedDict
+import numpy as np
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        d={}
+        al=[]
+        for i in nums:
+            if i in d:
+                d[i]+=1
+            else:
+                d[i]=1
+        keys=list(d.keys())
+        values=list(d.values())
+        sorted_value_index=np.argsort(values)
+        svi=sorted_value_index[::-1]
+        for i in range(k):
+            al.append(keys[svi[i]])
+        return al
