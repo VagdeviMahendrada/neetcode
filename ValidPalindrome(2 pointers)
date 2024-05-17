@@ -1,0 +1,18 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        # ns=""
+        # for i in s:
+        #     if i.isalnum():
+        #         if i.isupper():
+        #             ns+=lower(i)
+        #         else:
+        #             ns+=i
+        ns=''.join([char.lower() for char in s if char.isalnum()])
+        l=0
+        r=len(ns)-1
+        while(l<r): # 0 7,1 6,2 5,3 4,
+            if ns[l]!=ns[r]:
+                return False
+            l+=1
+            r-=1
+        return True
