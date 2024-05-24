@@ -1,0 +1,17 @@
+class Solution(object):
+    def numOfSubarrays(self, arr, k, threshold):
+        window=[]
+        a=0
+        l=0
+        threshold_sum=threshold*k
+        for r in range(len(arr)):
+            if r-l+1>k:
+                window.remove(arr[l])
+                l+=1
+            window.append(arr[r])
+            if len(window)==k:
+                if sum(window)>=threshold_sum:
+                    a+=1
+        return a
+
+        
